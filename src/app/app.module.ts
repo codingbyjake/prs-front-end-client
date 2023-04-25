@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { E404Component } from './core/e404/e404.component';
+import { MenuitemComponent } from './menu/menuitem/menuitem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    E404Component
+    E404Component,
+    MenuitemComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
