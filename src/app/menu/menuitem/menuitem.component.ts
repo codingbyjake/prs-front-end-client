@@ -10,7 +10,8 @@ export class MenuitemComponent {
 
   menus: Menu[] = [
     new Menu("Home", "/home"),
-    new Menu("About", "/about")
+    new Menu("About", "/about"),
+    new Menu("Users", "/user/list")
   ]
 
 }

@@ -1,0 +1,34 @@
+<div id="component">
+    <header>
+        <app-menuitem></app-menuitem>
+        <span id="pageTitle">{{ pageTitle }}</span>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Username</td>
+                <td>Password</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Phone</td>
+                <td>Email</td>
+                <td>Reviewer</td>
+                <td>Admin</td>
+            </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let u of users">
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.password }}</td>
+            <td>{{ u.firstname }}</td>
+            <td>{{ u.lastname }}</td>
+            <td>{{ u.phone }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.isReviewer }}</td>
+            <td>{{ u.isAdmin }}</td>
+         </tr>
+        </tbody>
+    </table>
+</div>
