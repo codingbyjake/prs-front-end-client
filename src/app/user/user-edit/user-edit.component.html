@@ -1,1 +1,50 @@
-<p>user-edit works!</p>
+<div id="component">
+    <header>
+        <app-menuitem></app-menuitem>
+        <span id="pageTitle">{{ pageTitle }}</span>
+    </header>
+    <main>
+        <table class="table table-striped table-sm" *ngIf="user">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><input [(ngModel)]="user.id" readonly></td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input [(ngModel)]="user.username"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input [(ngModel)]="user.password" type="password"></td>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td><input [(ngModel)]="user.firstname"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input [(ngModel)]="user.lastname"></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td><input [(ngModel)]="user.phone"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input [(ngModel)]="user.email"></td>
+                </tr>
+                <tr>
+                    <td>Reviewer</td>
+                    <td><input [(ngModel)]="user.isReviewer" type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td>Admin</td>
+                    <td><input [(ngModel)]="user.isAdmin" type="checkbox"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="save()" class="btn btn-primary">Save</button>
+    </main>
+
+</div>

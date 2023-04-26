@@ -8,19 +8,19 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <td class="color">Id</td>
-                <td>Username</td>
-                <td>Password</td>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Phone</td>
-                <td>Email</td>
-                <td>Reviewer</td>
-                <td>Admin</td>
+                <th><button (click)="selectColumn('id')" class="btn btn-link">Id</button></th>
+                <th><button (click)="selectColumn('username')" class="btn btn-link">Username</button></th>
+                <th><button (click)="selectColumn('password')" class="btn btn-link">Password</button></th>
+                <th><button (click)="selectColumn('firstname')" class="btn btn-link">First Name</button></th>
+                <th><button (click)="selectColumn('lastname')" class="btn btn-link">Last Name</button></th>
+                <th><button (click)="selectColumn('phone')" class="btn btn-link">Phone</button></th>
+                <th><button (click)="selectColumn('email')" class="btn btn-link">Email</button></th>
+                <th><button (click)="selectColumn('isReviewer')" class="btn btn-link">Reviewer</button></th>
+                <th><button (click)="selectColumn('isAdmin')" class="btn btn-link">Admin</button></th>
             </tr>
         </thead>
         <tbody>
-         <tr *ngFor="let u of users">
+         <tr *ngFor="let u of users | sort :sortColumn :sortAsc">
             <td>{{ u.id }}</td>
             <td>{{ u.username }}</td>
             <td>{{ u.password }}</td>
@@ -33,7 +33,7 @@
             <td>
                 <a routerLink="/user/detail/{{ u.id }}">Details</a>
                 <span> | </span>
-                <a routerLink="/user/change/{{ u.id }}">Edit</a>
+                <a routerLink="/user/edit/{{ u.id }}">Edit</a>
             </td>
          </tr>
         </tbody>
