@@ -1,0 +1,16 @@
+<div id="component">
+<table>
+    <tbody>
+      <tr>
+          <td>Username: </td>
+          <td><input [(ngModel)]="username"></td>
+      </tr>
+      <tr>
+          <td>Password: </td>
+          <td><input [(ngModel)]="password" type="password"></td>
+      </tr>
+    </tbody>
+</table>
+<p>{{ loginMessage }}</p>
+<button (click)="login()" class="btn btn-success">Login</button>
+</div>

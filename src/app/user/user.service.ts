@@ -13,6 +13,7 @@ export class UserService {
   constructor(
     private http: HttpClient
   ) { }
+
   list(): Observable<User[]>{
     return this.http.get(`${this.baseurl}`) as Observable<User[]>;
   }
@@ -31,6 +32,12 @@ export class UserService {
 
   remove(id: number): Observable<any>{
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
+  }
+
+  // ********************* Non-Standard Methods *********************
+
+  login(username: string, password: string): Observable<User>{
+    return this.http.get(`${this.baseurl}/${username}/${password}`) as Observable<User>;
   }
 
 }
