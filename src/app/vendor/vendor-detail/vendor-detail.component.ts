@@ -1,26 +1,25 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user.service';
+import { Vendor } from '../vendor.class';
+import { VendorService } from '../vendor.service';
 import { SystemService } from 'src/app/core/system.service';
-import { User } from '../user.class';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-detail',
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  selector: 'app-vendor-detail',
+  templateUrl: './vendor-detail.component.html',
+  styleUrls: ['./vendor-detail.component.css']
 })
-export class UserDetailComponent {
+export class VendorDetailComponent {
 
-  user!: User; 
-  pageTitle = "User Details";
+  vendor!: Vendor;
+  pageTitle: string = "Vendor Details";
   showVerifyRemove: boolean = false;
 
   constructor(
-    private usrSvc: UserService,
+    private venSvc: VendorService,
     private sysSvc: SystemService,
     private route: ActivatedRoute,
     private router: Router
-
   ){}
 
   remove() {
@@ -28,10 +27,10 @@ export class UserDetailComponent {
   }
 
   removeVerified(): void{
-    this.usrSvc.remove(this.user.id).subscribe({
+    this.venSvc.remove(this.vendor.id).subscribe({
       next: (res) => {
-        console.debug("Users Deleted!!"),
-        this.router.navigateByUrl("/user/list")
+        console.debug("Vendor Deleted!!"),
+        this.router.navigateByUrl("/vendor/list")
       },
       error: (err) => {
         console.error(err);
@@ -41,15 +40,16 @@ export class UserDetailComponent {
 
   ngOnInit(): void{
     let id = +this.route.snapshot.params["id"];
-    this.usrSvc.get(id).subscribe({
+    this.venSvc.get(id).subscribe({
       next: (res) =>{
-        console.debug("User Listed:", res);
-        this.user = res;
+        console.debug("Vendor Listed:", res);
+        this.vendor = res;
       },
       error: (err) => {
         console.error(err);
       }
     })
   }
+
 
 }

@@ -9,6 +9,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
+import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 
 const routes: Routes = [
  { path: "", redirectTo: "/home", pathMatch: "full"},
@@ -22,6 +23,7 @@ const routes: Routes = [
  { path: "user/login", component: UserLoginComponent},
 
  { path: "vendor/list", component: VendorListComponent},
+ { path: "vendor/detail/:id", component: VendorDetailComponent},
 
  { path: "**", component: E404Component}
 
