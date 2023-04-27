@@ -16,6 +16,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { SortPipe } from './core/sort.pipe';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserSearchPipe } from './user/user-search.pipe';
+import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UserSearchPipe } from './user/user-search.pipe';
     UserEditComponent,
     SortPipe,
     UserLoginComponent,
-    UserSearchPipe
+    UserSearchPipe,
+    VendorListComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
