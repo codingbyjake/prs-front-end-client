@@ -50,6 +50,4 @@ export class VendorDetailComponent {
       }
     })
   }
-
-
 }
