@@ -13,6 +13,7 @@ export class MenuitemComponent {
     new Menu("About", "/about"),
     new Menu("Users", "/user/list"),
     new Menu("Vendors", "/vendor/list"),
+    new Menu("Products", "/product/list"),
     new Menu("Login", "/user/login")
   ]
 
