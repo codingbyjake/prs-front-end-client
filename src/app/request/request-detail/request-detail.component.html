@@ -1,0 +1,49 @@
+<div id="component">
+    <header>
+        <app-menuitem></app-menuitem>
+        <span id="pageTitle">{{ pageTitle }}</span>
+    </header>
+    <main>
+        <table class="table table-striped table-sm" *ngIf="request">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td><input [(ngModel)]="request.id" readonly></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input [(ngModel)]="request.description" readonly></td>
+                </tr>
+                <tr>
+                    <td>Justification</td>
+                    <td><input [(ngModel)]="request.justification" readonly></td>
+                </tr>
+                <tr>
+                    <td>Rejection Reason</td>
+                    <td><input [ngModel]="request.rejectionReason" readonly></td>
+                </tr>
+                <tr>
+                    <td>Delivery Mode</td>
+                    <td><input [(ngModel)]="request.deliveryMode" readonly></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><input [(ngModel)]="request.status" readonly></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td><input [(ngModel)]="request.total" readonly></td>
+                </tr>
+                <tr>
+                    <td>User</td>
+                    <td><input [(ngModel)]="request.username" readonly></td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="remove()" class="btn btn-danger">Delete</button>
+        <span *ngIf="showVerifyRemove">
+            <span> | </span>
+            <button (click)="removeVerified()" class="btn btn-danger">Verify Remove</button>
+        </span>
+    </main>
+</div>
