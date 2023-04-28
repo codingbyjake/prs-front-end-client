@@ -24,6 +24,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
     ProductListComponent,
     ProductDetailComponent,
     ProductCreateComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    RequestListComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,

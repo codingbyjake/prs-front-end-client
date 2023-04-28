@@ -32,7 +32,4 @@ export class RequestService {
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
   }
 
-
-
-
 }
