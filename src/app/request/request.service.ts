@@ -32,4 +32,14 @@ export class RequestService {
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
   }
 
+  // *************** Additional Methods ***************
+
+  requests(id: number): Observable<Request[]>{
+    return this.http.get(`${this.baseurl}/reviews/${id}`) as Observable<Request[]>;
+  }
+
+  review(request: Request): Observable<any>{
+    return this.http.put(`${this.baseurl}/review/${request.id}`, request) as Observable<any>;
+  }
+
 }
