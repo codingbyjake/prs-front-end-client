@@ -12,19 +12,19 @@
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td><input [(ngModel)]="request.description" readonly></td>
+                    <td><input [(ngModel)]="request.description"></td>
                 </tr>
                 <tr>
                     <td>Justification</td>
-                    <td><input [(ngModel)]="request.justification" readonly></td>
+                    <td><input [(ngModel)]="request.justification"></td>
                 </tr>
                 <tr>
                     <td>Rejection Reason</td>
-                    <td><input [ngModel]="request.rejectionReason" readonly></td>
+                    <td><input [ngModel]="request.rejectionReason"></td>
                 </tr>
                 <tr>
                     <td>Delivery Mode</td>
-                    <td><input [(ngModel)]="request.deliveryMode" readonly></td>
+                    <td><input [(ngModel)]="request.deliveryMode"></td>
                 </tr>
                 <tr>
                     <td>Status</td>
@@ -36,14 +36,14 @@
                 </tr>
                 <tr>
                     <td>User</td>
-                    <td><input [(ngModel)]="request.username" readonly></td>
+                    <td>
+                        <select [(ngModel)]="request.userId">
+                            <option *ngFor="let u of users" value="{{ u.id }}">{{ u.username }}</option>
+                         </select>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <button (click)="remove()" class="btn btn-danger">Delete</button>
-        <span *ngIf="showVerifyRemove">
-            <span> | </span>
-            <button (click)="removeVerified()" class="btn btn-danger">Verify Remove</button>
-        </span>
+        <button (click)="save()" class="btn btn-primary">Save</button>
     </main>
 </div>

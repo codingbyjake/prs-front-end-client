@@ -18,6 +18,7 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { RequestListComponent } from './request/request-list/request-list.component';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestCreateComponent } from './request/request-create/request-create.component';
 
 const routes: Routes = [
  { path: "", redirectTo: "/home", pathMatch: "full"},
@@ -42,6 +43,7 @@ const routes: Routes = [
 
  { path: "request/list", component: RequestListComponent},
  { path: "request/detail/:id", component: RequestDetailComponent},
+ { path: "request/create", component: RequestCreateComponent},
 
  { path: "**", component: E404Component}
 
