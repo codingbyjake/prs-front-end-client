@@ -1,0 +1,71 @@
+<div id="component">
+    <header>
+        <app-menuitem></app-menuitem>
+        <span id="pageTitle">{{ pageTitle }}</span>
+        <span> | </span>
+        <a routerLink="/request/create" class="">Create New Request</a>
+    </header>
+    <table class="table table-striped table-sm" *ngIf="request">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Justification</th>
+                <th>Rejection Reason</th>
+                <th>Delivery Mode</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+         <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.justification }}</td>
+            <td>{{ request.rejectionReason }}</td>
+            <td>{{ request.deliveryMode }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ request.total | currency }}</td>
+            <td>{{ request.username }}</td>
+            <td>
+                <button (click)="review()" class="btn btn-link">Submit for Review</button>
+            </td>
+         </tr>
+        </tbody>
+    </table>
+    <hr>
+    <hr>
+    <div>
+        <a routerLink="/requestline/create" class="">Create New Requestline</a>
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Line Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let rl of requestlines">
+                    <td>rl.id</td>
+                    <td>rl.product</td>
+                    <td>rl.price</td>
+                    <td>rl.quantity</td>
+                    <td>rl.linetotal</td>
+                    <td>
+                        <a routerLink="/requestline/detail/{{ rl.id }}">Details</a>
+                        <span> | </span>
+                        <a routerLink="/requestline/edit/{{ rl.id }}">Edit</a>
+                        <span> | </span>
+                    </td>
+                </tr> -->
+
+            </tbody>
+        </table>
+    </div>
+</div>

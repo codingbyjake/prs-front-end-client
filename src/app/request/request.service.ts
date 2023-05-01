@@ -34,10 +34,12 @@ export class RequestService {
 
   // *************** Additional Methods ***************
 
+    // ******** Methods returns all Requests with Status REVIEW except those of current User ********
   requests(id: number): Observable<Request[]>{
     return this.http.get(`${this.baseurl}/reviews/${id}`) as Observable<Request[]>;
   }
 
+  // ******** Methods Sets Request Status to Review or Approved ********
   review(request: Request): Observable<any>{
     return this.http.put(`${this.baseurl}/review/${request.id}`, request) as Observable<any>;
   }
