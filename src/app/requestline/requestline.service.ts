@@ -13,6 +13,10 @@ export class RequestlineService {
     private http: HttpClient
   ) { }
 
+  get(id: number): Observable<Requestline>{
+    return this.http.get(`${this.baseurl}/${id}`) as Observable<Requestline>;
+  }
+
   create(requestline: Requestline): Observable<Requestline>{
     return this.http.post(`${this.baseurl}`, requestline) as Observable<Requestline>;
   }
