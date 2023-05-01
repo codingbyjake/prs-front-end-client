@@ -50,20 +50,20 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- <tr *ngFor="let rl of requestlines">
-                    <td>rl.id</td>
-                    <td>rl.product</td>
-                    <td>rl.price</td>
-                    <td>rl.quantity</td>
-                    <td>rl.linetotal</td>
+            <tbody *ngIf="request && request.requestLines">
+              <tr *ngFor="let rl of request.requestLines">
+                    <td>{{ rl.id }}</td>
+                    <td>{{ rl.product?.name }}</td>
+                    <td>{{ rl.product?.price | currency }}</td>
+                    <td>{{ rl.quantity}}</td>
+                    <td>{{ rl.quantity * (rl.product === null ? 0 : rl.product.price) | currency }}</td>
                     <td>
                         <a routerLink="/requestline/detail/{{ rl.id }}">Details</a>
                         <span> | </span>
                         <a routerLink="/requestline/edit/{{ rl.id }}">Edit</a>
                         <span> | </span>
                     </td>
-                </tr> -->
+                </tr>
 
             </tbody>
         </table>
