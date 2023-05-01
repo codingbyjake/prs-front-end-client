@@ -31,6 +31,7 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { RequestLinesComponent } from './request/request-lines/request-lines.component';
 import { RequestReviewListComponent } from './request/request-review-list/request-review-list.component';
 import { RequestReviewItemComponent } from './request/request-review-item/request-review-item.component';
+import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { RequestReviewItemComponent } from './request/request-review-item/reques
     RequestEditComponent,
     RequestLinesComponent,
     RequestReviewListComponent,
-    RequestReviewItemComponent
+    RequestReviewItemComponent,
+    RequestlineCreateComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,

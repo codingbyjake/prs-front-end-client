@@ -37,8 +37,8 @@
     </table>
     <hr>
     <hr>
-    <div>
-        <a routerLink="/requestline/create" class="">Create New Requestline</a>
+    <div *ngIf="request">
+        <a routerLink="/requestline/create/{{ request.id }}" class="">Create New Requestline</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
