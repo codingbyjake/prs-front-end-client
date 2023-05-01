@@ -15,6 +15,7 @@ export class MenuitemComponent {
     new Menu("Vendors", "/vendor/list"),
     new Menu("Products", "/product/list"),
     new Menu("Requests", "/request/list"),
+    new Menu("Requests under Review", "/request/review-list"),
     new Menu("Login", "/user/login")
   ]
 

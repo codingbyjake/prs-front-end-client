@@ -58,9 +58,9 @@
                     <td>{{ rl.quantity}}</td>
                     <td>{{ rl.quantity * (rl.product === null ? 0 : rl.product.price) | currency }}</td>
                     <td>
-                        <a routerLink="/requestline/detail/{{ rl.id }}">Details</a>
-                        <span> | </span>
                         <a routerLink="/requestline/edit/{{ rl.id }}">Edit</a>
+                        <span> | </span>
+                        <a routerLink="/requestline/delete/{{ rl.id }}">Delete</a>
                         <span> | </span>
                     </td>
                 </tr>
