@@ -2,8 +2,6 @@
     <header>
         <app-menuitem></app-menuitem>
         <span id="pageTitle">{{ pageTitle }}</span>
-        <span> | </span>
-        <a routerLink="/request/create" class="">Create New Request</a>
     </header>
     <table class="table table-striped table-sm" *ngIf="request">
         <thead>
@@ -16,7 +14,6 @@
                 <th>Status</th>
                 <th>Total</th>
                 <th>Username</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,16 +26,12 @@
             <td>{{ request.status }}</td>
             <td>{{ request.total | currency }}</td>
             <td>{{ request.username }}</td>
-            <td>
-                <button (click)="review()" class="btn btn-link">Submit for Review</button>
-            </td>
          </tr>
         </tbody>
     </table>
     <hr>
     <hr>
     <div>
-        <a routerLink="/requestline/create" class="">Create New Requestline</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -47,7 +40,6 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Line Total</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody *ngIf="request && request.requestLines">
@@ -57,13 +49,15 @@
                     <td>{{ rl.product?.price | currency }}</td>
                     <td>{{ rl.quantity}}</td>
                     <td>{{ rl.quantity * (rl.product === null ? 0 : rl.product.price) | currency }}</td>
-                    <td>
-                        <a routerLink="/requestline/edit/{{ rl.id }}">Edit</a>
-                        <span> | </span>
-                        <a routerLink="/requestline/delete/{{ rl.id }}">Delete</a>
-                    </td>
                 </tr>
             </tbody>
+            <button (click)="approve()" class="btn btn-success">Approve</button>
+            <span> | </span>
+            <button (click)="reject()" class="btn btn-danger">Reject</button>
         </table>
+    </div>
+    <div *ngIf="rejectClicked">
+        <p>Enter Rejection Reason: <input [(ngModel)]="request.rejectionReason"></p>
+        <button (click)="rejectConfirmed()" class="btn btn-danger">Confirm Reject</button>
     </div>
 </div>
