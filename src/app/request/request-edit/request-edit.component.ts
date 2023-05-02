@@ -16,6 +16,8 @@ export class RequestEditComponent {
   request!: Request;
   users: User[] = [];
   pageTitle: string = "Edit Request"
+  
+
 
   constructor(
     private reqSvc: RequestService,
@@ -41,19 +43,14 @@ export class RequestEditComponent {
 
   ngOnInit(): void{
     let id = this.route.snapshot.params["id"];
-    this.usrSvc.list().subscribe({
-      next: (res) => {
-        console.debug("Users seen by the Request Componenttt", res);
-        this.users = res;
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    })
     this.reqSvc.get(id).subscribe({
       next: (res) => {
         console.debug("Requesstt:", res);
         this.request = res;
+        this.request.username = this.request.user !== null ? this.request.user.username : "No User";
+      },
+      error: (err) => {
+        console.error(err);
       }
     })
   }

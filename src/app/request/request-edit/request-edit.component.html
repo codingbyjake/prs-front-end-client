@@ -36,11 +36,7 @@
                 </tr>
                 <tr>
                     <td>User</td>
-                    <td>
-                        <select [(ngModel)]="request.userId">
-                            <option *ngFor="let u of users" value="{{ u.id }}">{{ u.username }}</option>
-                         </select>
-                    </td>
+                    <td><input [(ngModel)]="request.username" readonly></td>
                 </tr>
             </tbody>
         </table>
