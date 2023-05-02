@@ -26,18 +26,17 @@ export class UserLoginComponent {
       next: (res) => {
         console.debug("Login Success!!", res);
         this.sysSvc.loggedInUser = res;
-        this.router.navigateByUrl("/user/list");
+        console.debug("logged in user:", this.sysSvc.loggedInUser)
+        this.router.navigateByUrl("/request/list");
       },
       error: (err) => {
         console.error(err);
         this.loginMessage = "Login failed. Please try again."
       }
-
     })
   }
   ngOnInit(): void{
     this.sysSvc.loggedInUser = null;
-
   }
 
 }

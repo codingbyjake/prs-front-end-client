@@ -14,6 +14,7 @@ export class RequestReviewListComponent {
   pageTitle = "Requests Under Review";
   sortColumn: string = "id";
   sortAsc: boolean = true;
+  loggedInUserId!: number;
 
   constructor(
     private reqSvc: RequestService,
@@ -30,12 +31,18 @@ export class RequestReviewListComponent {
   }
 
   ngOnInit(): void{
-  this.reqSvc.requests(199).subscribe({
+    console.debug("logged in user:", this.sysSvc.loggedInUser)
+    if(this.sysSvc.loggedInUser === null){
+      this.loggedInUserId = 0;
+    }else{
+      this.loggedInUserId = this.sysSvc.loggedInUser.id;
+    }
+  this.reqSvc.requests(this.loggedInUserId).subscribe({
     next: (res) =>{
       console.debug("Requests Listed:", res);
       this.requests = res;
       for(let r of this.requests){
-        r.username = r.user !== null ? r.user.username : "No User";
+        r.username = r.user === null ? "No User" : r.user.username;
       }
     },
     error: (err) => {
