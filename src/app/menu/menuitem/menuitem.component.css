@@ -16,3 +16,9 @@ a:hover{
     color: white;
     background: black;
 }
+
+#usr{
+    color: silver;
+    padding: 0 10px;
+    
+}

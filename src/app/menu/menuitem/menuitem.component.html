@@ -1,5 +1,8 @@
 <nav>
     <ul>
+        <li id="usr"> Current User: {{ currentUser }} </li>
+    </ul>
+    <ul>
         <li *ngFor="let m of menus">
             <a routerLink="{{ m.route}}">{{ m.display }}</a>
         </li>
