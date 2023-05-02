@@ -25,4 +25,8 @@ export class RequestlineService {
     return this.http.put(`${this.baseurl}/${id}`, requestline) as Observable<any>;
   }
 
+  remove(id: number): Observable<any>{
+    return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
+  }
+
 }

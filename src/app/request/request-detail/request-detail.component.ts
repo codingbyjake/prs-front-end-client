@@ -29,8 +29,8 @@ export class RequestDetailComponent {
   removeVerified(): void{
     this.reqSvc.remove(this.request.id).subscribe({
       next: (res) => {
-        console.debug("Request Deleted!!"),
-        this.router.navigateByUrl("/request/list")
+        console.debug("Request Deleted!!");
+        this.router.navigateByUrl("/request/list");
       },
       error: (err) => {
         console.error(err);

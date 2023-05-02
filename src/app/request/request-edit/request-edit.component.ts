@@ -30,7 +30,7 @@ export class RequestEditComponent {
     this.reqSvc.change(this.request.id, this .request).subscribe({
       next: (res) => {
         console.debug("Request changed to:", res);
-        this.request = res;
+        // this.request = res;
         this.router.navigateByUrl("/request/list");
       },
       error: (err) => {

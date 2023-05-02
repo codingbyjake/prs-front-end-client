@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Requestline } from '../requestline.class';
 import { Product } from 'src/app/product/product.class';
 import { RequestlineService } from '../requestline.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/product/product.service';
 
 @Component({
@@ -19,11 +19,22 @@ export class RequestlineEditComponent {
   constructor(
     private rlineSvc: RequestlineService,
     private proSvc: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ){}
 
   save(): void{
     // I'm wrting the save method for requestline-edit
+    this.requestline.requestId = +this.requestline.requestId;
+    this.rlineSvc.change(this.requestline.id, this.requestline).subscribe({
+      next: (res) => {
+        console.debug("Changed Requestlineee:", res);
+        this.router.navigateByUrl(`/request/lines/${this.requestline.requestId}`)
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 
   ngOnInit(): void{
