@@ -1,11 +1,11 @@
-<div id="component">
+<div id="component" *ngIf="request && request.requestLines">
     <header>
         <app-menuitem></app-menuitem>
         <span id="pageTitle">{{ pageTitle }}</span>
         <span> | </span>
         <a routerLink="/request/create" class="">Create New Request</a>
     </header>
-    <table class="table table-striped table-sm" *ngIf="request">
+    <table class="table table-striped table-sm">
         <thead>
             <tr>
                 <th>Id</th>
@@ -37,7 +37,7 @@
     </table>
     <hr>
     <hr>
-    <div *ngIf="request">
+    <div>
         <a routerLink="/requestline/create/{{ request.id }}" class="">Create New Requestline</a>
         <table class="table table-striped table-sm">
             <thead>
@@ -50,7 +50,7 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody *ngIf="request && request.requestLines">
+            <tbody>
               <tr *ngFor="let rl of request.requestLines">
                     <td>{{ rl.id }}</td>
                     <td>{{ rl.product?.name }}</td>
@@ -60,10 +60,13 @@
                     <td>
                         <a routerLink="/requestline/edit/{{ rl.id }}">Edit</a>
                         <span> | </span>
-                        <a routerLink="/requestline/delete/{{ rl.id }}">Delete</a>
+                        <button (click)="remove(rl)" class="btn btn-link">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <span *ngIf="showVerifyRemove">
+            <button (click)="removeVerified()" class="btn btn-danger">Verify Remove</button>
+        </span>
     </div>
 </div>
